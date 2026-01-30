@@ -1,0 +1,44 @@
+public class LargestandSecondLargest {
+
+	public static void main(String[] args) {
+		
+		int[] arr= {5,7,4,3};
+		
+		int[] result= largestSecondLargest( arr,arr.length);
+		
+		for(int n:result) {
+			System.out.print(n+" ");
+		}	
+
+	}
+
+	private static int[] largestSecondLargest(int[] arr, int n) {
+		
+		int largest=Integer.MIN_VALUE;
+		
+		int secondLargest=Integer.MIN_VALUE;
+		
+		for(int i=0;i<n;i++) {
+			
+			if(arr[i]>largest) {
+				
+				secondLargest=largest;
+				largest=arr[i];
+			} else if(arr[i]<largest && arr[i]>secondLargest) {
+				
+				secondLargest=arr[i];
+			}
+		}
+		
+		if(secondLargest==Integer.MIN_VALUE) {
+			
+			secondLargest=-1;
+		}
+		
+		
+		return new int[] {largest, secondLargest};
+	}
+	
+
+
+}
